@@ -70,7 +70,7 @@ export function DevToolsIntro() {
             body="ページが読み込んでいるファイル（HTML / CSS / 画像 / API）の一覧と、それぞれの所要時間・サイズを見られる。"
             tips={[
               "画像が重い → ここでサイズを確認",
-              "API がエラー → Status が 4xx / 5xx になっている",
+              "API がエラー → Status が 4xx / 5xx になっている（※APIについては『APIって何？』へ）",
               "『再読込しないと出ない』時は、開きながら Cmd/Ctrl+R",
             ]}
           />

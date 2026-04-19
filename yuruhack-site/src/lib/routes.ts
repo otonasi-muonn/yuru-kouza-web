@@ -75,6 +75,7 @@ export const EXTRA_PAGES: PageDef[] = [
   { path: "/extra/path-basics", title: "パス入門", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/glossary", title: "用語集", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/error-reading", title: "エラーメッセージの読み方", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/api-intro", title: "APIって何？", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/ai-tools", title: "AIツールの使い方", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/markdown-advanced", title: "Markdown 発展", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/image-handling", title: "画像の扱い", section: "extra", sectionLabel: "おまけ" },

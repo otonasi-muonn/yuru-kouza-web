@@ -22,6 +22,7 @@ import { TerminalBasics } from "@/pages/extra/TerminalBasics";
 import { PathBasics } from "@/pages/extra/PathBasics";
 import { Glossary } from "@/pages/extra/Glossary";
 import { ErrorMessages } from "@/pages/extra/ErrorMessages";
+import { ApiIntro } from "@/pages/extra/ApiIntro";
 import { AITools } from "@/pages/extra/AITools";
 import { MarkdownAdvanced } from "@/pages/extra/MarkdownAdvanced";
 import { ImageHandling } from "@/pages/extra/ImageHandling";
@@ -113,6 +114,8 @@ function resolvePage(path: string): () => React.JSX.Element {
       return Glossary;
     case "/extra/error-reading":
       return ErrorMessages;
+    case "/extra/api-intro":
+      return ApiIntro;
     case "/extra/ai-tools":
       return AITools;
     case "/extra/markdown-advanced":
@@ -137,3 +140,4 @@ function resolvePage(path: string): () => React.JSX.Element {
 }
 
 export default App;
+

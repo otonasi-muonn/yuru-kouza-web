@@ -94,7 +94,7 @@ const ENTRIES: ErrEntry[] = [
     cat: "browser",
     sample: "Access to fetch at '...' has been blocked by CORS policy",
     cause: "別ドメインの API を呼ぼうとしたがサーバー側が許可していない。",
-    fix: "API 側の仕様書を確認。学習中ならプロキシを挟むか、サーバーを自分で立てるのが確実。",
+    fix: "API 側の仕様書を確認（※APIについては『APIって何？』へ）。学習中ならプロキシを挟むか、サーバーを自分で立てるのが確実。",
   },
   {
     id: "vscode-file-locked",
