@@ -1,0 +1,55 @@
+# ------------------------------------------------------------
+# リポジトリルート用 .gitignore
+# 個別プロジェクトの無視ルールは yuruhack-site/.gitignore 側に書く。
+# ここでは「ルート直下に誤って生成されるもの」を中心に無視する。
+# ------------------------------------------------------------
+
+# --- 依存関係 / パッケージマネージャ ---
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+.npm/
+.yarn/
+.yarnrc
+.yarn-integrity
+
+# --- ログ類 ---
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- ビルド成果物（ルートに散らかるケース向け）---
+# yuruhack-docs.html は配布物なので **追跡する**（明示的に無視しない）
+dist/
+dist-ssr/
+build/
+*.tgz
+*.tar.gz
+
+# --- 環境変数 / 秘匿情報 ---
+.env
+.env.*
+!.env.example
+
+# --- エディタ / IDE / OS ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.sample.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- その他キャッシュ ---
+.cache/
+.temp/
+.tmp/
+coverage/

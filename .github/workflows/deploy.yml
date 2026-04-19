@@ -1,0 +1,75 @@
+name: Deploy to GitHub Pages
+
+# SDD T-03 対応: main への push で自動ビルド→GitHub Pages 公開。
+# 手動ホットフィックス用に workflow_dispatch も有効化（T-24 対応）。
+on:
+  push:
+    branches: [main]
+    paths:
+      - "yuruhack-site/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+# GitHub Pages に必要な最小限の権限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時実行を1つに絞る（push連打による衝突を防ぐ）
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: yuruhack-site
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: yuruhack-site/pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 型エラーやテスト失敗があったら Pages デプロイ前に落とす
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Type check & build
+        run: pnpm build
+        env:
+          # プロジェクト Pages 用の base パス（リポジトリ名に合わせる）
+          VITE_BASE_PATH: /yuru-kouza-web/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: yuruhack-site/dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
