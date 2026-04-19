@@ -552,7 +552,6 @@ function MiniTerminal() {
             placeholder="ここにコマンド（例: ls）"
           />
         </div>
-        <div ref={bottomRef} />
       </div>
     </div>
   );
