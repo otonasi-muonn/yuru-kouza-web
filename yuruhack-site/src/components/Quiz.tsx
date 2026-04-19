@@ -94,6 +94,7 @@ export function Quiz({
           </div>
           {explain && <p className="!mt-0">{explain}</p>}
           <button
+            type="button"
             onClick={() => setPicked(null)}
             className="mt-2 text-xs underline hover:no-underline"
           >

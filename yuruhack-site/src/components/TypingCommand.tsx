@@ -104,6 +104,7 @@ export function TypingCommand({
         </div>
         <div className="flex items-center gap-1.5">
           <button
+            type="button"
             onClick={copyAll}
             className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-2 py-0.5 text-white/80 hover:bg-white/10"
             aria-label="コマンドをコピー"
@@ -112,6 +113,7 @@ export function TypingCommand({
             {copied ? "コピーしました" : "コピー"}
           </button>
           <button
+            type="button"
             onClick={reset}
             className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-2 py-0.5 text-white/80 hover:bg-white/10"
             aria-label="やり直す"
@@ -119,6 +121,7 @@ export function TypingCommand({
             <RotateCcw size={10} /> やり直す
           </button>
           <button
+            type="button"
             onClick={toggle}
             className="inline-flex items-center gap-1 rounded border border-white/10 bg-primary/90 px-2 py-0.5 font-medium !text-primary-foreground hover:bg-primary"
             aria-label={playing ? "一時停止" : "再生"}

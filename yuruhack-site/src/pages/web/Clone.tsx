@@ -52,6 +52,14 @@ export function Clone() {
         </p>
       </Callout>
 
+      <Callout variant="info" title="前提: Git は入っていますか？">
+        <p className="!mt-0">
+          VSCode は Git の機能を内蔵していますが、PC 自体に <strong>Git</strong> がインストールされていないと動きません。
+          もし左のソース管理アイコンに「Git がインストールされていません」というエラーが出た場合は、
+          <a href="https://git-scm.com/" target="_blank" rel="noreferrer">公式サイト</a> から Git をインストールして VSCode を再起動してください。
+        </p>
+      </Callout>
+
       <h2>手順</h2>
       <ol>
         <li>
@@ -118,6 +126,9 @@ export function Clone() {
         <li>
           右下に「リポジトリの複製が完了しました」と出たら、
           <strong>「開く」</strong> を押して VSCode をそのフォルダに切り替え。
+          <div className="mt-2 text-sm text-amber-600 dark:text-amber-400">
+            ⚠️ もし「開く」を押し忘れたり、通知が消えてしまった場合は、メニューの <strong>ファイル → フォルダーを開く</strong> から、さっき保存したフォルダを選び直してください。
+          </div>
         </li>
         <li>
           最初の 1 回だけ「このフォルダ内のファイルの作成者を信頼しますか？」と聞かれます。

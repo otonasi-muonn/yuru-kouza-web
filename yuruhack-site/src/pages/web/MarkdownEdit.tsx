@@ -157,6 +157,10 @@ export function MarkdownEdit() {
       <h2>よくあるつまずき</h2>
       <ul>
         <li>
+          <strong><code>README.md</code> が見当たらない</strong> → リポジトリ作成時に「Add a README file」にチェックを入れ忘れた可能性があります。
+          VSCode のエクスプローラ上部にある「新しいファイル」アイコンを押し、<code>README.md</code> という名前で作成すれば大丈夫です。
+        </li>
+        <li>
           <strong>保存を忘れる</strong> → VSCode のタブに{" "}
           <strong>●（白丸）</strong>が付いていたら未保存。
           保存するとバツ印になります。

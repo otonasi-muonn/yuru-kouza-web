@@ -146,6 +146,7 @@ function Section({
   return (
     <div className="mb-1">
       <button
+        type="button"
         onClick={onToggle}
         aria-expanded={open}
         className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 text-sm font-semibold text-foreground transition hover:bg-secondary"
