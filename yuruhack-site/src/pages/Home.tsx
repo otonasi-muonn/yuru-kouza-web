@@ -30,13 +30,13 @@ export function Home() {
         <div className="mt-6 flex flex-wrap gap-2">
           <a
             href="#/common/01-github-account"
-            className="inline-flex items-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition hover:bg-primary/90"
+            className="inline-flex items-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-sm font-medium !text-primary-foreground no-underline shadow-sm transition hover:bg-primary/90"
           >
             <Rocket size={15} /> スタート → 共通モジュール <ArrowRight size={14} />
           </a>
           <a
             href="#/web/01-create-repository"
-            className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-4 py-2.5 text-sm font-medium transition hover:bg-secondary"
+            className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-4 py-2.5 text-sm font-medium !text-foreground no-underline transition hover:bg-secondary"
           >
             Web班から見る
           </a>
@@ -165,7 +165,7 @@ export function Home() {
         </div>
         <a
           href="#/common/01-github-account"
-          className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition hover:bg-primary/90"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-sm font-medium !text-primary-foreground no-underline shadow-sm transition hover:bg-primary/90"
         >
           スタート <ArrowRight size={14} />
         </a>

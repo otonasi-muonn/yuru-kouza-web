@@ -77,6 +77,8 @@ export const EXTRA_PAGES: PageDef[] = [
   { path: "/extra/javascript-basics", title: "JavaScript基礎", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/github-pages", title: "GitHub Pages", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/css-frameworks", title: "CSSフレームワーク", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/vscode-plus", title: "VSCode拡張（拡充版）", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/git-deep", title: "Git インタラクティブ", section: "extra", sectionLabel: "おまけ" },
 ];
 
 export const ALL_PAGES: PageDef[] = [

@@ -16,6 +16,8 @@ import { HtmlCssBasics } from "@/pages/extra/HtmlCssBasics";
 import { JavaScriptBasics } from "@/pages/extra/JavaScriptBasics";
 import { GithubPagesPage } from "@/pages/extra/GithubPages";
 import { CssFrameworks } from "@/pages/extra/CssFrameworks";
+import { VSCodePlus } from "@/pages/extra/VSCodePlus";
+import { GitDeepDive } from "@/pages/extra/GitDeepDive";
 import { NotFound } from "@/pages/NotFound";
 
 function normalizeHash(): string {
@@ -86,6 +88,10 @@ function resolvePage(path: string): () => React.JSX.Element {
       return GithubPagesPage;
     case "/extra/css-frameworks":
       return CssFrameworks;
+    case "/extra/vscode-plus":
+      return VSCodePlus;
+    case "/extra/git-deep":
+      return GitDeepDive;
     default:
       return NotFound;
   }

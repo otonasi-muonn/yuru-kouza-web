@@ -102,8 +102,22 @@
   .prose li > ul, .prose li > ol {
     @apply my-1.5;
   }
-  .prose a {
+  /*
+   * 本文中のリンクのみ既定のオレンジ色にしたい。
+   * ただし CTA ボタン（bg-primary / bg-accent / bg-gradient-* 付きの <a>）や、
+   * .not-prose を付けたラッパー配下のリンクは対象外にする。
+   * これをやらないと `.prose a { color: primary }` が
+   * `text-primary-foreground` utilityを上書きしてしまい、
+   * "オレンジ背景 × オレンジ文字" の低コントラストが起きる。
+   */
+  .prose
+    a:not([class*="bg-primary"]):not([class*="bg-accent"]):not([class*="bg-gradient"]):not([class*="bg-foreground"]) {
     @apply text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary;
+  }
+  .prose .not-prose a {
+    /* .not-prose の中は素のリンクに戻す。色は個別に指定する前提。 */
+    text-decoration: inherit;
+    color: inherit;
   }
   .prose strong {
     @apply font-semibold text-foreground;
