@@ -15,6 +15,14 @@ export function CreateRepository() {
         prev={{ path: "/common/03-github-oauth", label: "GitHub OAuth 連携" }}
       />
 
+      <Callout variant="info" title="この作業は何？">
+        <p className="!mt-0">
+          これは <strong>『GitHub クラウド上に、自分の自己紹介を置く箱』を作る</strong> 作業です。
+          GitHub のリポジトリ（repo）は『1 つのプロジェクト = 1 つの箱』。
+          今日はその箱を 1 個だけ、しかも<strong>ユーザー名と同名</strong>という特別な名前で用意します。
+        </p>
+      </Callout>
+
       <Callout variant="danger" title="最重要ポイント: 特殊リポジトリ">
         <p className="!mt-0">
           GitHub には、<strong>ユーザー名と完全に同じ名前のリポジトリ</strong>{" "}
@@ -62,8 +70,28 @@ export function CreateRepository() {
         <li>
           <strong>Public</strong> を選択（必須）。
           <Callout variant="warn" title="Private にすると表示されません">
-            特殊リポジトリの README 表示機能は、<strong>Public リポジトリのみ</strong>が対象です。
-            Private にしてしまった場合は、作り直すか、Settings から Public に変更してください。
+            <p className="!mt-0">
+              特殊リポジトリの README 表示機能は、<strong>Public リポジトリのみ</strong>が対象です。
+              Private にしてしまった場合は、作り直すか、Settings から Public に変更してください。
+            </p>
+            <p>
+              <strong>Public / Private の違い:</strong>
+            </p>
+            <ul>
+              <li>
+                <strong>Public</strong> — URL を知っている人（＝検索エンジンを含む全世界）から中身が見える。
+                自己紹介リポジトリは『自分を見せるため』のものなので Public が正解。
+              </li>
+              <li>
+                <strong>Private</strong> — 自分と招待したコラボレーターだけが見られる。
+                パスワード・下書き・個人情報を置きたい時はこちら。
+              </li>
+            </ul>
+            <p className="text-xs text-muted-foreground">
+              ⚠️ Public にするということは <strong>一度書いた文章は世界中に読まれうる</strong>ということ。
+              住所・本名・LINEのID など、今後もずっと出したくない情報は書かないで。
+              Git は削除履歴も残るので、「あとで消せば OK」は通用しません。
+            </p>
           </Callout>
         </li>
         <li>
@@ -76,6 +104,25 @@ export function CreateRepository() {
         </li>
         <li>
           <strong>「Add .gitignore」「Choose a license」</strong> は今回は不要。スルー。
+          <Callout variant="info" title="ちなみに: この2つは何？">
+            <ul className="!mt-2">
+              <li>
+                <strong>.gitignore</strong>{" "}
+                — Git の追跡から除外したいファイルを書いておくリスト。
+                パスワードを書いた <code>.env</code>、ビルドで巨大になる{" "}
+                <code>node_modules/</code> などをうっかりアップしないための守り役。
+                詳しくは{" "}
+                <a href="#/extra/gitignore-intro">.gitignore 入門</a>。
+              </li>
+              <li>
+                <strong>license（ライセンス）</strong>{" "}
+                — 公開したコードを他人がどう使って良いかの宣言。
+                本気で配布する時は MIT や Apache-2.0 を付けると『安心して使える』印になります。
+                詳しくは{" "}
+                <a href="#/extra/license-intro">ライセンス入門</a>。
+              </li>
+            </ul>
+          </Callout>
         </li>
         <li>
           下の <strong>「Create repository」</strong> ボタンをクリック。

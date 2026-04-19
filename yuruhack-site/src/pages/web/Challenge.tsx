@@ -96,15 +96,38 @@ export function Challenge() {
       </ol>
       <CopyBlock code={IMAGE_EXAMPLE} filename="README.md（相対パスで画像参照）" />
 
+      <Callout variant="tip" title="『./』が指しているもの = 今いる場所">
+        <p className="!mt-0">
+          <code>./images/avatar.png</code> は『README がいるフォルダ』から見た
+          <strong>相対パス</strong>です。
+          README.md がリポジトリ直下にあるなら、『直下の images フォルダの中の avatar.png』の意味。
+        </p>
+        <ul>
+          <li><code>./</code> — 今いるフォルダ</li>
+          <li><code>../</code> — 一つ上のフォルダ</li>
+          <li><code>/images/</code>（先頭スラッシュ）— <strong>OS のルート</strong>を指してしまうので README では使わない</li>
+        </ul>
+        <p className="text-xs text-muted-foreground">
+          相対パスに自信がない人は先に「
+          <a href="#/extra/path-basics">パス入門</a>
+          」でクリックしながら学べます。
+        </p>
+      </Callout>
+
       <h3>方法B: 外部URLを貼る</h3>
       <p>
         すでに Web 上にある画像なら、URL をそのまま書くだけでもOK。
       </p>
       <CopyBlock
-        code={`![ねこ](https://placekitten.com/400/240)
+        code={`![ねこ](https://picsum.photos/400/240)
 `}
         filename="README.md（URL から読み込む）"
       />
+      <p className="text-sm text-muted-foreground">
+        （<code>picsum.photos</code> はランダムな写真を毎回返してくれるサービス。
+        他人のサーバーに画像を置き続けるのは本番では非推奨なので、方法A の方が安心。
+        画像の扱いは <a href="#/extra/image-handling">画像の扱い</a> に詳しくまとめています。）
+      </p>
 
       <h2>GitHub のバッジ・統計</h2>
       <p>

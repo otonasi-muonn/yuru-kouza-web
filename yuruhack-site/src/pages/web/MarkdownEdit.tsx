@@ -27,10 +27,25 @@ export function MarkdownEdit() {
         prev={{ path: "/web/02-clone", label: "Clone する" }}
       />
 
+      <Callout variant="info" title="この作業は何？">
+        <p className="!mt-0">
+          Clone したフォルダにある <code>README.md</code>{" "}
+          を書き換えて、『自分はこういう人間です』と自己紹介します。
+          このファイルはあとで GitHub に送り返すと、<strong>プロフィールのトップに載ります</strong>。
+        </p>
+      </Callout>
+
       <Callout variant="info" title="Markdown（マークダウン）とは">
-        プレーンテキストに少しの記号を足して、見出しやリストを表現する書き方です。
-        <code>#</code> で見出し、<code>-</code> で箇条書き、<code>**強調**</code> で太字など。
-        GitHub では <code>.md</code> ファイルが自動で見た目整形されます。
+        <p className="!mt-0">
+          プレーンテキストに少しの記号を足して、見出しやリストを表現する書き方です。
+          <code>#</code> で見出し、<code>-</code> で箇条書き、<code>**強調**</code> で太字など。
+          GitHub では <code>.md</code> ファイルが自動で見た目整形されます。
+        </p>
+        <p>
+          <code>.md</code> は『マークダウン形式のテキストファイル』の拡張子。
+          中身はただのテキストなので、メモ帳でも開けます（ただし整形は見えない）。
+          GitHub 上や VSCode のプレビューで見ると、見出しや箇条書きが『整った見た目』で表示されます。
+        </p>
       </Callout>
 
       <h2>手順</h2>
@@ -155,7 +170,25 @@ export function MarkdownEdit() {
           <strong>プレースホルダーを山カッコごと残してしまう</strong> →{" "}
           <code>&lt;</code> と <code>&gt;</code> まで含めて削除してから書き換える。
         </li>
+        <li>
+          <strong>日本語入力のまま <code>#</code> や バッククォートが全角になる</strong> →{" "}
+          <code>＃</code>（全角）や <code>｀</code>（全角）は Markdown 記号として認識されません。
+          必ず <strong>半角（英数字モード）</strong>で書くこと。
+          VSCode の右下に IME の状態が表示されるので、あやしい時は確認。
+        </li>
+        <li>
+          <strong>見出しが『1 行目から #』じゃない</strong> → 見出しの前には空行、
+          <code>#</code> の前の空白もなしに。先頭行にそのまま <code># タイトル</code> と書く。
+        </li>
       </ul>
+
+      <Callout variant="tip" title="もっと知りたい人へ">
+        <p className="!mt-0">
+          表・チェックボックス・引用・コードブロックなど、Markdown の発展記法は{" "}
+          <a href="#/extra/markdown-advanced">Markdown 発展</a>{" "}
+          にまとめてあります。README をもっと『映える』ものにしたい人はぜひ。
+        </p>
+      </Callout>
 
       <ProgressCheck
         id="web-03-markdown-edit"

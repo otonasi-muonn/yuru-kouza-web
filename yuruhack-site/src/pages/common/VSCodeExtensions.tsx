@@ -15,6 +15,31 @@ export function VSCodeExtensions() {
         prev={{ path: "/common/01-github-account", label: "GitHub アカウント作成" }}
       />
 
+      <Callout variant="info" title="この作業は何？">
+        <p className="!mt-0">
+          <strong>拡張機能</strong> は、VSCode に後付けできる便利機能のこと（ブラウザの拡張と同じ発想）。
+          今日入れるのは『日本語化』と『Markdown のプレビュー』の2〜3個だけ。
+          これで以降のページの『〜を開く』『〜のボタンを押す』が全部日本語で追えるようになります。
+        </p>
+      </Callout>
+
+      <Callout variant="tip" title="VSCode の画面マップ（最低限）">
+        <ul className="!mt-2">
+          <li>
+            <strong>左端の縦アイコン列</strong> — エクスプローラ / 検索 / ソース管理 / 拡張機能 / デバッグ
+          </li>
+          <li>
+            <strong>下の黒いエリア</strong> — ターミナル（<kbd>Ctrl</kbd>+<kbd>`</kbd> で開閉）
+          </li>
+          <li>
+            <strong>上の検索バー風の窓</strong> — <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> で出る『コマンドパレット』。困ったらここに入れる
+          </li>
+          <li>
+            <strong>左下の歯車</strong> — 設定・アカウント
+          </li>
+        </ul>
+      </Callout>
+
       <Callout variant="info" title="前提">
         このサイトでは VSCode が既にインストールされていることを前提にしています。
         まだの方は{" "}
@@ -116,7 +141,18 @@ export function VSCodeExtensions() {
           <strong>拡張機能タブが見当たらない</strong> →{" "}
           画面を広げるか、メニュー <code>表示 → 拡張機能</code> から開ける。
         </li>
+        <li>
+          <strong>インストールで無限ぐるぐる</strong> — 会場や学校の Wi-Fi のプロキシ/ファイアウォール（<code>marketplace.visualstudio.com</code> をブロック）が原因のことがあります。
+          スマホのテザリング等、別回線で試すのも手。
+        </li>
       </ul>
+
+      <Callout variant="tip" title="さらに沼りたい人へ">
+        Live Server・Prettier・Error Lens など『入れたら確実に快適になる』拡張の紹介ページをおまけに用意しました。
+        今日は読まなくて OK、4/29 本番までに覗いておくと差がつきます → 「
+        <a href="#/extra/vscode-plus">VSCode 推奨拡張（拡充版）</a>
+        」
+      </Callout>
 
       <ProgressCheck
         id="common-02-vscode-extensions"

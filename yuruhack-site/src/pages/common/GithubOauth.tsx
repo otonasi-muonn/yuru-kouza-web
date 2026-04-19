@@ -15,6 +15,14 @@ export function GithubOauth() {
         prev={{ path: "/common/02-vscode-extensions", label: "VSCode 推奨拡張" }}
       />
 
+      <Callout variant="info" title="この作業は何？">
+        <p className="!mt-0">
+          <strong>OAuth</strong> は『VSCode に、GitHub にアクセスする許可証を渡す』仕組み。
+          パスワードを直接 VSCode に見せるわけではなく、<strong>必要な権限だけを持つ切符</strong>を発行してもらうので安全です。
+          この切符は後から <a href="https://github.com/settings/applications" target="_blank" rel="noreferrer">Settings → Applications</a> で取り消せます。
+        </p>
+      </Callout>
+
       <Callout variant="tip" title="SSH は今日は使いません">
         「SSH キーを作って…」という手順はよく紹介されますが、今日は
         <strong>OAuth（ブラウザ経由の認証）</strong>{" "}
@@ -89,7 +97,22 @@ export function GithubOauth() {
           GitHub の二段階認証を有効にしている場合、
           Authenticator アプリのコード、もしくは SMS コードを入力します。
         </li>
+        <li>
+          <strong>Chrome 以外で GitHub にログイン中だった</strong> →{" "}
+          OAuth フローは『既定のブラウザ』で開きます。Edge/Safari 側に別アカウントでログインしていると、そちらの権限で連携してしまうので注意。
+          迷ったら一度そのブラウザで <code>github.com</code> を開き、意図したアカウントかを先に確認。
+        </li>
       </ul>
+
+      <Callout variant="tip" title="完了したか不安なとき">
+        <ul className="!mt-2">
+          <li>VSCode 左下アカウントアイコンに自分のユーザー名が出ている</li>
+          <li>
+            GitHub → <a href="https://github.com/settings/applications" target="_blank" rel="noreferrer">Authorized OAuth Apps</a> に『Visual Studio Code』が並んでいる
+          </li>
+        </ul>
+        この2つが両方 ✓ なら連携成功です。
+      </Callout>
 
       <Callout variant="info" title="ここまでで共通モジュール終了">
         お疲れさまでした。ここから先は <strong>Web 班</strong>{" "}

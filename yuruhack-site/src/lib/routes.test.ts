@@ -11,10 +11,10 @@ import {
 } from "./routes";
 
 describe("routes 定義", () => {
-  it("共通 3 / Web 5 / 発展 8 ページあり、MAIN_FLOW は共通＋Web のみ", () => {
+  it("共通 3 / Web 5 / 発展 21 ページあり、MAIN_FLOW は共通＋Web のみ", () => {
     expect(COMMON_PAGES.length).toBe(3);
     expect(WEB_PAGES.length).toBe(5);
-    expect(EXTRA_PAGES.length).toBe(8);
+    expect(EXTRA_PAGES.length).toBe(21);
     expect(MAIN_FLOW.length).toBe(COMMON_PAGES.length + WEB_PAGES.length);
   });
 

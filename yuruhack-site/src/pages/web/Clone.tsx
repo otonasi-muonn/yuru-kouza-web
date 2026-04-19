@@ -15,9 +15,41 @@ export function Clone() {
         prev={{ path: "/web/01-create-repository", label: "リポジトリ作成" }}
       />
 
-      <Callout variant="info" title="Clone（クローン）とは">
-        「GitHub 上にあるリポジトリ」を「自分のPC」にまるごとコピーしてくる操作。
-        以降、PC 側でファイルを編集し、GitHub に送り返す（Push する）という流れになります。
+      <Callout variant="info" title="この作業は何？">
+        <p className="!mt-0">
+          <strong>Clone（クローン）</strong>は『GitHub 上にあるリポジトリ』を『自分のPC』にまるごとコピーしてくる操作です。
+          これをやる理由は単純で、<strong>PCのエディタで快適に書きたいから</strong>。
+          ブラウザ上の編集画面は応急処置向きで、長く書くと疲れます。
+        </p>
+        <p>
+          以降の流れはこうです:
+        </p>
+        <ol className="!my-2">
+          <li>PC にコピー（今ここ）</li>
+          <li>VSCode で <code>README.md</code> を編集</li>
+          <li>GitHub に送り返す（Push）</li>
+        </ol>
+        <p className="text-xs text-muted-foreground">
+          ※ 「Clone」と「Download ZIP」は別物。Clone なら Git の履歴も一緒にコピーされ、
+          以降の Push もそのまま繋がります。ZIP は履歴なしのコピーなので、戻せません。
+        </p>
+      </Callout>
+
+      <Callout variant="tip" title="VSCode の『ワークスペース』って何？">
+        <p className="!mt-0">
+          VSCode は『いま開いているフォルダ』を基準にあらゆる操作をします。
+          Clone 後に VSCode が切り替わるフォルダが、そのプロジェクトの<strong>作業領域（ワークスペース）</strong>です。
+        </p>
+        <ul>
+          <li>左のエクスプローラに並ぶファイル = そのフォルダの中身</li>
+          <li>ターミナルを開くと、最初からそのフォルダにいる（cd 不要）</li>
+          <li>Git の操作（コミット・プッシュ）もこのフォルダに対して効く</li>
+        </ul>
+        <p className="text-xs text-muted-foreground">
+          ターミナル/パスに不安がある人は先に「
+          <a href="#/extra/terminal-basics">ターミナル入門</a>」「
+          <a href="#/extra/path-basics">パス入門</a>」をどうぞ。
+        </p>
       </Callout>
 
       <h2>手順</h2>
@@ -59,6 +91,11 @@ export function Clone() {
               <li>
                 Desktop でも動きますが、後で「どこに置いたか忘れる」事故が多いです。
                 練習用のフォルダを作ることをおすすめします。
+              </li>
+              <li>
+                🚫 <strong>OneDrive / iCloud Drive / Dropbox の同期フォルダは避けてください。</strong>
+                Git の内部ファイル（<code>.git/</code>）がクラウドと喧嘩して、
+                『コミットしたはずなのに消えた』という事故が起きます。
               </li>
             </ul>
 

@@ -15,6 +15,14 @@ export function CommitPush() {
         prev={{ path: "/web/03-markdown-edit", label: "README を書く" }}
       />
 
+      <Callout variant="info" title="この作業は何？">
+        <p className="!mt-0">
+          PC で書いた <code>README.md</code> は<strong>まだ自分のPCの中にしかいません</strong>。
+          これを GitHub 側に『送りつける』ことで初めて、世界に公開されます。
+          送る工程は <strong>Commit（記録）→ Push（送信）</strong> の 2 段階です。
+        </p>
+      </Callout>
+
       <Callout variant="info" title="Commit と Push の違い（ざっくり）">
         <ul>
           <li>
@@ -26,14 +34,73 @@ export function CommitPush() {
             Push して初めてネット上の自分のリポジトリが更新されます。
           </li>
         </ul>
+        <p className="text-xs text-muted-foreground">
+          なぜ分かれているの？ → Commit は何回でも積めて、まとめて Push できる設計だから。
+          『メモ書き』を何個も置いてから『清書して送る』イメージ。
+        </p>
+      </Callout>
+
+      <Callout variant="tip" title="ブランチって何？今は『main』だけ覚えれば OK">
+        <p className="!mt-0">
+          リポジトリの中には <strong>ブランチ（branch）</strong>という『作業の系統』があります。
+          今日は <code>main</code> という1本のブランチしかない状態で進めるので、
+          <strong>『 main に向かって Push している』</strong>とだけ理解できれば十分。
+        </p>
+        <ul>
+          <li><code>HEAD</code> — 『いま自分がいるコミット』を指す目印</li>
+          <li><code>origin</code> — GitHub 側のリモートの別名（デフォルトでこの名前）</li>
+          <li><code>origin/main</code> — GitHub 上の main ブランチ</li>
+        </ul>
+        <p className="text-xs text-muted-foreground">
+          ブランチを分けたり合流させたりする話は{" "}
+          <a href="#/extra/git-deep">Git 詳細</a> で。
+          本番の複数人開発では必須スキルですが、今日は 1 本で十分。
+        </p>
       </Callout>
 
       <Callout variant="tip" title="Git コマンドは覚えなくて大丈夫">
-        本格的には <code>git add</code> <code>git commit</code>{" "}
-        <code>git push</code> …と打つのですが、今日は
-        <strong>VSCode のボタン操作だけ</strong>で完結させます。
-        コマンドは 4/29 以降、必要になってから覚えればOKです。
+        <p className="!mt-0">
+          本格的には <code>git add</code> <code>git commit</code>{" "}
+          <code>git push</code> …と打つのですが、今日は
+          <strong>VSCode のボタン操作だけ</strong>で完結させます。
+          コマンドは 4/29 以降、必要になってから覚えればOKです。
+        </p>
+        <p>ただし『ボタンが裏で何をやっているか』は一言で覚えると強いです:</p>
       </Callout>
+
+      <div className="not-prose my-5 overflow-hidden rounded-md border border-border text-sm">
+        <table className="w-full">
+          <thead className="bg-muted/50">
+            <tr>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold">VSCode のボタン</th>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold">裏で走るコマンド</th>
+              <th className="border-b border-border px-3 py-2 text-left font-semibold">意味</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            <tr>
+              <td className="px-3 py-2">「+」（ステージ）</td>
+              <td className="px-3 py-2 font-mono text-[0.82rem]">git add &lt;file&gt;</td>
+              <td className="px-3 py-2 text-muted-foreground">このファイルをコミットに含める</td>
+            </tr>
+            <tr>
+              <td className="px-3 py-2">「コミット」</td>
+              <td className="px-3 py-2 font-mono text-[0.82rem]">git commit -m "..."</td>
+              <td className="px-3 py-2 text-muted-foreground">ステージしたものをまとめて記録</td>
+            </tr>
+            <tr>
+              <td className="px-3 py-2">「変更の同期」/「Push」</td>
+              <td className="px-3 py-2 font-mono text-[0.82rem]">git push</td>
+              <td className="px-3 py-2 text-muted-foreground">記録を GitHub に送る</td>
+            </tr>
+            <tr>
+              <td className="px-3 py-2">「変更の同期」（Pull 含む時）</td>
+              <td className="px-3 py-2 font-mono text-[0.82rem]">git pull → git push</td>
+              <td className="px-3 py-2 text-muted-foreground">先に受信してから送る</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div className="not-prose my-6 grid gap-3 sm:grid-cols-3">
         <Step n={1} icon={<GitBranch size={18} />} title="ステージング">
@@ -146,7 +213,28 @@ export function CommitPush() {
           <strong>Push のときにログインを求められる</strong> →{" "}
           ブラウザが開いたら GitHub にログインし直して許可。
         </li>
+        <li>
+          <strong>『マージしてから push してください』と言われた</strong> →{" "}
+          GitHub 側に自分以外（もしくはブラウザで編集した自分）の変更がある状態。
+          「変更の同期」を押すと Pull → Push を順に走らせてくれます。
+          詳しい話は{" "}
+          <a href="#/extra/merge-conflict">マージコンフリクト入門</a> に。
+        </li>
+        <li>
+          <strong>『このリポジトリにまだ origin がない』と言われる</strong> →{" "}
+          Clone 経由ではなく手動でフォルダを作ったケース。
+          右下のバナーから「Publish to GitHub」を選ぶと、空のリポジトリを作って紐付けてくれます。
+        </li>
       </ul>
+
+      <Callout variant="info" title="なぜバージョン管理（Git）を使うのか">
+        <p className="!mt-0">
+          『 Ctrl+S で保存すればいいじゃん』『Google ドライブで共有すれば？』
+          という素朴な疑問は正しいです。なのに Git を使う理由は{" "}
+          <a href="#/extra/vcs-motivation">VCS のありがたみ</a>{" "}
+          にまとめてあるので、気になったら覗いてみてください。
+        </p>
+      </Callout>
 
       <ProgressCheck
         id="web-04-commit-push"

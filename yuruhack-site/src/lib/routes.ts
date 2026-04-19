@@ -71,6 +71,19 @@ export const WEB_PAGES: PageDef[] = [
 ];
 
 export const EXTRA_PAGES: PageDef[] = [
+  { path: "/extra/terminal-basics", title: "ターミナル入門", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/path-basics", title: "パス入門", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/glossary", title: "用語集", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/error-reading", title: "エラーメッセージの読み方", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/ai-tools", title: "AIツールの使い方", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/markdown-advanced", title: "Markdown 発展", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/image-handling", title: "画像の扱い", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/gitignore-intro", title: ".gitignore 入門", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/dev-tools", title: "DevTools 入門", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/accessibility-intro", title: "アクセシビリティ入門", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/license-intro", title: "ライセンス入門", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/merge-conflict", title: "マージコンフリクト入門", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/vcs-motivation", title: "なぜ Git を使うの？", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/ssh", title: "SSH接続", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/github-actions", title: "GitHub Actions", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/html-css-basics", title: "HTML/CSS基礎", section: "extra", sectionLabel: "おまけ" },

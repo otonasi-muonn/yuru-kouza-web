@@ -18,6 +18,19 @@ import { GithubPagesPage } from "@/pages/extra/GithubPages";
 import { CssFrameworks } from "@/pages/extra/CssFrameworks";
 import { VSCodePlus } from "@/pages/extra/VSCodePlus";
 import { GitDeepDive } from "@/pages/extra/GitDeepDive";
+import { TerminalBasics } from "@/pages/extra/TerminalBasics";
+import { PathBasics } from "@/pages/extra/PathBasics";
+import { Glossary } from "@/pages/extra/Glossary";
+import { ErrorMessages } from "@/pages/extra/ErrorMessages";
+import { AITools } from "@/pages/extra/AITools";
+import { MarkdownAdvanced } from "@/pages/extra/MarkdownAdvanced";
+import { ImageHandling } from "@/pages/extra/ImageHandling";
+import { GitignoreIntro } from "@/pages/extra/GitignoreIntro";
+import { DevToolsIntro } from "@/pages/extra/DevToolsIntro";
+import { AccessibilityIntro } from "@/pages/extra/AccessibilityIntro";
+import { LicenseIntro } from "@/pages/extra/LicenseIntro";
+import { MergeConflict } from "@/pages/extra/MergeConflict";
+import { VcsMotivation } from "@/pages/extra/VcsMotivation";
 import { NotFound } from "@/pages/NotFound";
 
 function normalizeHash(): string {
@@ -92,6 +105,32 @@ function resolvePage(path: string): () => React.JSX.Element {
       return VSCodePlus;
     case "/extra/git-deep":
       return GitDeepDive;
+    case "/extra/terminal-basics":
+      return TerminalBasics;
+    case "/extra/path-basics":
+      return PathBasics;
+    case "/extra/glossary":
+      return Glossary;
+    case "/extra/error-reading":
+      return ErrorMessages;
+    case "/extra/ai-tools":
+      return AITools;
+    case "/extra/markdown-advanced":
+      return MarkdownAdvanced;
+    case "/extra/image-handling":
+      return ImageHandling;
+    case "/extra/gitignore-intro":
+      return GitignoreIntro;
+    case "/extra/dev-tools":
+      return DevToolsIntro;
+    case "/extra/accessibility-intro":
+      return AccessibilityIntro;
+    case "/extra/license-intro":
+      return LicenseIntro;
+    case "/extra/merge-conflict":
+      return MergeConflict;
+    case "/extra/vcs-motivation":
+      return VcsMotivation;
     default:
       return NotFound;
   }

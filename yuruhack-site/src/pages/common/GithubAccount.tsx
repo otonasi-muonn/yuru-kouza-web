@@ -1,6 +1,7 @@
 import { Callout, StepMeta } from "@/components/Callout";
 import { ProgressCheck } from "@/components/ProgressCheck";
 import { PageNav } from "@/components/NextLink";
+import { FadeIn } from "@/components/Animated";
 
 export function GithubAccount() {
   return (
@@ -9,9 +10,22 @@ export function GithubAccount() {
       <h1>GitHubアカウント作成</h1>
 
       <StepMeta
-        goal="GitHub のアカウントを作り、メール認証まで完了させる"
+        goal="GitHub のアカウントを作り、メール認証・二段階認証まで完了させる"
         time="約 10 分"
       />
+
+      <Callout variant="info" title="この作業は何？">
+        <p className="!mt-0">
+          GitHub は『プログラムのコードをクラウドに置かせてくれるサービス』です。
+          4/29 の本番で作る Web サイトも、最終的にここへ置いて世界に公開します。
+          まずは <strong>自分専用の置き場を持つ権利</strong> を取りに行く、と考えてください。
+        </p>
+        <p>
+          Git と GitHub の違いが不安な人は、先に「
+          <a href="#/extra/glossary">用語集ページ</a>
+          」をのぞくと理解が早いです。
+        </p>
+      </Callout>
 
       <Callout variant="tip" title="すでにアカウントをお持ちの方へ">
         既に GitHub アカウントを持っている場合、この章は<strong>スキップしてOK</strong>です。
@@ -32,6 +46,12 @@ export function GithubAccount() {
         </li>
         <li>
           <strong>パスワード</strong> を入力。GitHub は強めのパスワードを要求します（15文字以上、または 8文字以上＋数字＋小文字）。
+          <Callout variant="tip" title="パスワードマネージャがあると超楽">
+            <p className="!mt-0">
+              1Password / Bitwarden / ブラウザ内蔵のパスワードマネージャでランダム生成 → 保存 にすれば、
+              覚える手間も使い回しのリスクも消えます。
+            </p>
+          </Callout>
         </li>
         <li>
           <strong>ユーザー名（Username）</strong> を決めます。
@@ -44,6 +64,9 @@ export function GithubAccount() {
                 「<code>test1234</code>」「<code>aaa</code>」などの使い捨て名は避け、あとでも名乗りやすい名前にしましょう。
               </li>
               <li>使える文字: 英数字とハイフン（先頭・末尾はハイフン不可）</li>
+              <li>
+                後から変更も可能ですが、古い URL へのリンクが切れる副作用があります。就活アカウントとして使うつもりなら一発で決める気持ちで。
+              </li>
             </ul>
           </Callout>
         </li>
@@ -59,6 +82,58 @@ export function GithubAccount() {
         </li>
         <li>
           アンケート画面はスキップ可能です（右上「Skip personalization」）。
+        </li>
+      </ol>
+
+      <h2 id="two-factor">🔐 2FA（二段階認証）を有効化する</h2>
+      <p>
+        GitHub は 2023 年末以降、コードを書く全員に 2FA を事実上強制しています。
+        サインアップ直後〜数日以内に『2FA を有効化してください』のバナーが必ず出るので、<strong>今のうちに済ませておく</strong> ほうが後々ラクです。
+      </p>
+
+      <FadeIn>
+        <ol>
+          <li>
+            スマホに <strong>Authenticator アプリ</strong> を入れます（Google Authenticator / Microsoft Authenticator / Authy などどれでも可）。
+          </li>
+          <li>
+            GitHub 右上のアイコン → <code>Settings</code> → 左の <code>Password and authentication</code>。
+          </li>
+          <li>
+            <code>Enable two-factor authentication</code> を押すと QR コードが出ます。
+            スマホのアプリで QR を読み取ると、6桁のコードが30秒ごとに生成されるようになります。
+          </li>
+          <li>
+            画面に出た 6 桁を入力して認証完了。
+          </li>
+          <li>
+            続けて <strong>リカバリコード</strong>（10個の暗号）が出ます。
+            これは <strong>スマホを失くした時の唯一の合鍵</strong> なので、<strong>必ずダウンロードして安全な場所に保管</strong> してください。PC のメモ帳 → クラウドの自分宛メモ、くらいで十分です。
+          </li>
+        </ol>
+      </FadeIn>
+
+      <Callout variant="warn" title="リカバリコードを無くすと最悪アカウントごと消える">
+        <p className="!mt-0">
+          2FA を有効化してスマホ紛失 → リカバリコードも無し、となるとサポートに懇願するしか復旧手段がありません。
+          コードは今すぐスクショ or 印刷、クラウドメモに貼っておきましょう。
+        </p>
+      </Callout>
+
+      <h2 id="email-privacy">📧 メールアドレスを非公開にしておく（推奨）</h2>
+      <p>
+        コミットにはデフォルトで登録したメールアドレスが刻印されます。
+        個人のメールを公開したくない人は、<strong>noreply メール</strong> に切り替えておきましょう。
+      </p>
+      <ol>
+        <li>
+          <code>Settings</code> → 左の <code>Emails</code>。
+        </li>
+        <li>
+          <code>Keep my email addresses private</code> にチェック。
+        </li>
+        <li>
+          表示される <code>&lt;ID&gt;+&lt;ユーザー名&gt;@users.noreply.github.com</code> が今後コミットで使われます。
         </li>
       </ol>
 
@@ -79,11 +154,14 @@ export function GithubAccount() {
           <strong>パズル認証を何度やっても通らない</strong> →
           ブラウザの広告ブロッカーや翻訳拡張をオフにして再挑戦。
         </li>
+        <li>
+          <strong>2FA の QR が読み取れない</strong> → QR コード下の『Setup key』を手動でアプリに入力しても同じことができる。
+        </li>
       </ul>
 
       <ProgressCheck
         id="common-01-github-account"
-        label="GitHub アカウントを作成し、ログインできる状態にした"
+        label="GitHub アカウントを作成し、2FA まで有効化した"
       />
 
       <PageNav current="/common/01-github-account" />
