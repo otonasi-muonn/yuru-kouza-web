@@ -190,8 +190,10 @@ export function CommitPush() {
       <ul>
         <li>
           <strong>「Git: ユーザー名とメールアドレスが設定されていません」と出る</strong> →{" "}
-          初回のみ必要な初期設定が済んでいない状態です。VSCode のターミナルを開き、
-          <code>git config --global user.name "あなたの名前"</code> と <code>git config --global user.name "メールアドレス"</code> を実行してください。
+          初回のみ必要な設定が未完了の状態です。VSCode のターミナルを開き、
+          <code>git config --global user.name "あなたの名前"</code> と{" "}
+          <code>git config --global user.email "あなたのメールアドレス"</code>{" "}
+          を 1 回だけ実行してください。
         </li>
         <li>
           <strong>ステージングし忘れて、空コミットになる</strong> →{" "}

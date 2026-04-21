@@ -135,7 +135,7 @@ export function AITools() {
         <SafetyCard
           icon={<Shield size={18} className="text-emerald-500" />}
           title="秘密情報は投げない"
-          body="APIキー（※詳しくは『APIって何？』参照）・パスワード・他人の個人情報は AI チャットに貼らない。社内ルールがある場合は必ず確認。"
+          body="APIキー（意味があいまいなら『APIって何？』を先に確認）・パスワード・他人の個人情報は AI チャットに貼らない。社内ルールがある場合は必ず確認。"
         />
         <SafetyCard
           icon={<Lightbulb size={18} className="text-amber-500" />}
