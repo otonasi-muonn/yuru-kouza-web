@@ -32,6 +32,14 @@ import { AccessibilityIntro } from "@/pages/extra/AccessibilityIntro";
 import { LicenseIntro } from "@/pages/extra/LicenseIntro";
 import { MergeConflict } from "@/pages/extra/MergeConflict";
 import { VcsMotivation } from "@/pages/extra/VcsMotivation";
+import { YamlBasics } from "@/pages/extra/YamlBasics";
+import { HackathonHome } from "@/pages/hackathon/Home";
+import { HackathonIcebreak } from "@/pages/hackathon/Icebreak";
+import { HackathonIdeathon } from "@/pages/hackathon/Ideathon";
+import { HackathonBuild } from "@/pages/hackathon/Build";
+import { HackathonDeploy } from "@/pages/hackathon/Deploy";
+import { HackathonImprove } from "@/pages/hackathon/Improve";
+import { HackathonPresent } from "@/pages/hackathon/Present";
 import { NotFound } from "@/pages/NotFound";
 
 function normalizeHash(): string {
@@ -134,6 +142,23 @@ function resolvePage(path: string): () => React.JSX.Element {
       return MergeConflict;
     case "/extra/vcs-motivation":
       return VcsMotivation;
+    case "/extra/yaml-basics":
+      return YamlBasics;
+    case "/hackathon/":
+    case "/hackathon":
+      return HackathonHome;
+    case "/hackathon/icebreak":
+      return HackathonIcebreak;
+    case "/hackathon/ideathon":
+      return HackathonIdeathon;
+    case "/hackathon/build":
+      return HackathonBuild;
+    case "/hackathon/deploy":
+      return HackathonDeploy;
+    case "/hackathon/improve":
+      return HackathonImprove;
+    case "/hackathon/present":
+      return HackathonPresent;
     default:
       return NotFound;
   }

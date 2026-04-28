@@ -86,6 +86,7 @@ export const EXTRA_PAGES: PageDef[] = [
   { path: "/extra/merge-conflict", title: "マージコンフリクト入門", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/vcs-motivation", title: "なぜ Git を使うの？", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/ssh", title: "SSH接続", section: "extra", sectionLabel: "おまけ" },
+  { path: "/extra/yaml-basics", title: "YAML 入門", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/github-actions", title: "GitHub Actions", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/html-css-basics", title: "HTML/CSS基礎", section: "extra", sectionLabel: "おまけ" },
   { path: "/extra/javascript-basics", title: "JavaScript基礎", section: "extra", sectionLabel: "おまけ" },
@@ -95,14 +96,67 @@ export const EXTRA_PAGES: PageDef[] = [
   { path: "/extra/git-deep", title: "Git インタラクティブ", section: "extra", sectionLabel: "おまけ" },
 ];
 
+export const HACKATHON_PAGES: PageDef[] = [
+  {
+    path: "/hackathon/",
+    title: "本番ホーム（タイムテーブル）",
+    sectionLabel: "ハッカソン本番",
+  },
+  {
+    path: "/hackathon/icebreak",
+    title: "アイスブレイク",
+    sectionLabel: "ハッカソン本番",
+  },
+  {
+    path: "/hackathon/ideathon",
+    title: "アイディアソン（チーム）",
+    sectionLabel: "ハッカソン本番",
+  },
+  {
+    path: "/hackathon/build",
+    title: "チーム開発スタート",
+    sectionLabel: "ハッカソン本番",
+  },
+  {
+    path: "/hackathon/deploy",
+    title: "Pages公開＆自動デプロイ",
+    sectionLabel: "ハッカソン本番",
+  },
+  {
+    path: "/hackathon/improve",
+    title: "改良アイディア集",
+    sectionLabel: "ハッカソン本番",
+  },
+  {
+    path: "/hackathon/present",
+    title: "発表＆クロージング",
+    sectionLabel: "ハッカソン本番",
+  },
+];
+
 export const ALL_PAGES: PageDef[] = [
   HOME,
   ...COMMON_PAGES,
   ...WEB_PAGES,
   ...EXTRA_PAGES,
+  ...HACKATHON_PAGES,
 ];
 
 export const MAIN_FLOW: PageDef[] = [...COMMON_PAGES, ...WEB_PAGES];
+
+export const HACKATHON_FLOW: PageDef[] = HACKATHON_PAGES;
+
+export function getNextHackathonPage(current: string): PageDef | undefined {
+  const idx = HACKATHON_FLOW.findIndex((p) => p.path === current);
+  if (idx === -1) return undefined;
+  return HACKATHON_FLOW[idx + 1];
+}
+
+export function getPrevHackathonPage(current: string): PageDef | undefined {
+  const idx = HACKATHON_FLOW.findIndex((p) => p.path === current);
+  if (idx <= 0) return undefined;
+  return HACKATHON_FLOW[idx - 1];
+}
 
 export function findPage(path: string): PageDef | undefined {
   return ALL_PAGES.find((p) => p.path === path);

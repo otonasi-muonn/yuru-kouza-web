@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, ChevronRight, CheckCircle2, Sparkles, Puzzle, Code2, Home } from "lucide-react";
-import { COMMON_PAGES, WEB_PAGES, EXTRA_PAGES, HOME } from "@/lib/routes";
+import { ChevronDown, ChevronRight, CheckCircle2, Sparkles, Puzzle, Code2, Home, Rocket } from "lucide-react";
+import { COMMON_PAGES, WEB_PAGES, EXTRA_PAGES, HACKATHON_PAGES, HOME } from "@/lib/routes";
 import type { PageDef } from "@/lib/routes";
 import { getAllProgress } from "@/lib/storage";
 
@@ -14,6 +14,7 @@ export function Sidebar({ currentPath, onNavigate }: Props) {
   const [openCommon, setOpenCommon] = useState(true);
   const [openWeb, setOpenWeb] = useState(true);
   const [openExtra, setOpenExtra] = useState(false);
+  const [openHackathon, setOpenHackathon] = useState(true);
 
   useEffect(() => {
     setProgress(getAllProgress());
@@ -31,6 +32,7 @@ export function Sidebar({ currentPath, onNavigate }: Props) {
     if (currentPath.startsWith("/common")) setOpenCommon(true);
     if (currentPath.startsWith("/web")) setOpenWeb(true);
     if (currentPath.startsWith("/extra")) setOpenExtra(true);
+    if (currentPath.startsWith("/hackathon")) setOpenHackathon(true);
   }, [currentPath]);
 
   const countProgress = (pages: PageDef[]) => {
@@ -56,6 +58,29 @@ export function Sidebar({ currentPath, onNavigate }: Props) {
       </a>
 
       <div className="mb-2 px-3 text-[0.72rem] uppercase tracking-wider text-muted-foreground">
+        ハッカソン本番（4/29）
+      </div>
+
+      <Section
+        label="本番コンテンツ"
+        icon={<Rocket size={14} />}
+        open={openHackathon}
+        onToggle={() => setOpenHackathon((v) => !v)}
+        progress={{ done: 0, total: 0 }}
+      >
+        {HACKATHON_PAGES.map((p, i) => (
+          <NavItem
+            key={p.path}
+            page={p}
+            index={i + 1}
+            active={currentPath === p.path}
+            done={false}
+            onNavigate={onNavigate}
+          />
+        ))}
+      </Section>
+
+      <div className="mt-6 mb-2 px-3 text-[0.72rem] uppercase tracking-wider text-muted-foreground">
         事前講座（4/26）
       </div>
 
@@ -115,14 +140,6 @@ export function Sidebar({ currentPath, onNavigate }: Props) {
           />
         ))}
       </Section>
-
-      <div className="mt-6 px-3 text-[0.72rem] uppercase tracking-wider text-muted-foreground/70">
-        ハッカソン本番（4/29）
-      </div>
-      <div className="mx-3 mt-2 rounded-md border border-dashed border-border bg-muted/30 px-3 py-3 text-xs text-muted-foreground">
-        本番コンテンツは後日 <code className="text-[0.9em]">/hackathon/</code>{" "}
-        配下に追加予定です。
-      </div>
     </nav>
   );
 }

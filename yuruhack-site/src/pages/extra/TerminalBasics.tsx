@@ -92,7 +92,7 @@ export function TerminalBasics() {
       </p>
       <FadeIn>
         <div className="not-prose my-4 rounded-md bg-[hsl(222_18%_12%)] px-4 py-3 font-mono text-sm text-white/90">
-          <span className="text-emerald-400">tanaka@MacBook-Pro</span>
+          <span className="text-emerald-400">muonn@MacBook-Pro</span>
           <span className="text-white/60">:</span>
           <span className="text-sky-300">~/yuruhack</span>
           <span className="text-white/60">$ </span>
@@ -101,7 +101,7 @@ export function TerminalBasics() {
       </FadeIn>
       <ul>
         <li>
-          <strong>tanaka@MacBook-Pro</strong> — ユーザー名とマシン名。
+          <strong>muonn@MacBook-Pro</strong> — ユーザー名とマシン名。
         </li>
         <li>
           <strong>~/yuruhack</strong> — <strong>いま自分がいるフォルダ</strong>（カレントディレクトリ）。<code>~</code> はホームディレクトリの省略形。
@@ -197,7 +197,7 @@ export function TerminalBasics() {
 
       <TypingCommand
         steps={[
-          { cmd: "pwd", out: "/Users/tanaka", note: "いまホームにいる" },
+          { cmd: "pwd", out: "/Users/muonn", note: "いまホームにいる" },
           { cmd: "cd Yuruhack", out: "cd: no such file or directory: Yuruhack", note: "大文字で怒られた" },
           { cmd: "cd yuruhack", out: "", note: "小文字なら入れる（OS は大文字小文字を区別する場合あり）" },
           { cmd: "ls", out: "README.md  assets/  index.html" },

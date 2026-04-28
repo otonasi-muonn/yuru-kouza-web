@@ -154,6 +154,30 @@ export function Home() {
         />
       </div>
 
+      <div className="not-prose my-4 rounded-md border border-accent/40 bg-accent/5 p-4">
+        <div className="flex items-start gap-3">
+          <div className="mt-0.5 rounded-md bg-accent/15 p-1.5 text-accent-foreground">
+            <Rocket size={16} />
+          </div>
+          <div className="flex-1">
+            <div className="font-semibold text-[0.95rem]">
+              4/29 本番ガイドが公開されました
+            </div>
+            <p className="mt-0.5 text-sm text-muted-foreground">
+              当日のタイムテーブル・チームでのアイディアソン・チーム開発ガイド・自動デプロイ用
+              <code className="text-[0.9em]">deploy.yml</code>{" "}
+              まで揃えています。困ったら開く資料置き場として使ってください。
+            </p>
+          </div>
+          <a
+            href="#/hackathon/"
+            className="ml-auto shrink-0 self-center rounded-md bg-accent px-3 py-1.5 text-xs font-medium !text-accent-foreground no-underline shadow-sm transition hover:bg-accent/90"
+          >
+            開く →
+          </a>
+        </div>
+      </div>
+
       <h2 id="dogfooding">🐕 このサイト自体が「完成見本」です</h2>
       <Callout variant="info" title="ドッグフーディング">
         <p className="!mt-0">
